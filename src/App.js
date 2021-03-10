@@ -1,9 +1,16 @@
 import './App.css';
-import React from 'react';
+import React, { Fragment } from "react";
 import * as contentAction from './redux/actions/updateContent';
 import { connect } from 'react-redux';
 import { AnalysisWorkerWrapper, createWorker, Paper } from "yoastseo";
 import Worker from "worker-loader!./analysis.worker.js";
+import { Container, SidebarContent, KeywordContainer, Main, Sidebar, SidebarHeader } from "./components/styles.js";
+
+// import Yoast_ContentAnalysis_Logo from "./Yoast_ContentAnalysis_Logo.png";
+// import { KeywordInput } from "yoast-components";
+// import ReadabilityResults from "./components/ReadabilityResults";
+// import SEOResults from "./components/SEOResults";
+
 
 class App extends React.Component {
     constructor( props ) {
@@ -42,14 +49,47 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <p>
-                        This is my yoastseo integration
-                    </p>
-                    <textarea id="content" name="content" rows="4" cols="50" onChange={this.handleChange}>{this.props.content}</textarea>
-                </header>
-            </div>
+            <Fragment>
+                <Container>
+                    <Main>
+                        <div className="App">
+                            <header className="App-header">
+                                <p>
+                                    This is my yoastseo integration
+                                </p>
+                                <textarea id="content" name="content" rows="4" cols="50" onChange={this.handleChange}>{this.props.content}</textarea>
+                            </header>
+                        </div>
+                        <KeywordContainer>
+                            <p>
+                                Focus Keyphrase
+                            </p>
+                            {/*<KeywordInput*/}
+                            {/*    id="keywordInput"*/}
+                            {/*    label="Focus keyphrase"*/}
+                            {/*    aria-label="Focus keyphrase"*/}
+                            {/*    keyword={ this.props.keyword }*/}
+                            {/*    onChange={ this.props.onFocusKeywordChange }*/}
+                            {/*/>*/}
+                        </KeywordContainer>
+                    </Main>
+                    <Sidebar>
+                        <SidebarHeader>
+                            <p>
+                                Yoast Content Analysis
+                            </p>
+                            {/*<img src={Yoast_ContentAnalysis_Logo} width="99" alt="Yoast logo"/>*/}
+                        </SidebarHeader>
+
+                        <SidebarContent>
+                            <h2>Readability analysis results</h2>
+                            {/*<ReadabilityResults />*/}
+                            <h2>SEO analysis results</h2>
+                            {/*<SEOResults />*/}
+                        </SidebarContent>
+                    </Sidebar>
+                </Container>
+            </Fragment>
         );
     }
 }
