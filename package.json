@@ -11,6 +11,7 @@
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "web-vitals": "^1.1.0",
+    "worker-loader": "^3.0.8",
     "yoastseo": "^1.90.0"
   },
   "devDependencies": {

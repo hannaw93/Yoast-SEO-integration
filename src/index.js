@@ -5,10 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import configureStore from '../src/redux/store/configureStore';
-import { Paper } from "yoastseo";
 
 const store = configureStore();
-console.log( store );
+
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
